@@ -1,0 +1,13 @@
+{
+  "name": "glome-plugin-arweave",
+  "version": "1.0.0",
+  "description": "The glome plugin for Arweave",
+  "main": "index.js",
+  "repository": "https://github.com/rareweave/glome-plugin-arweave",
+  "author": "Ducksquaddd <duck@kwak.tech>",
+  "license": "GPL0",
+  "dependencies": {
+    "arweave": "^1.14.0",
+    "base64-js": "^1.5.1"
+  }
+}
