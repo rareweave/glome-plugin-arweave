@@ -9,7 +9,7 @@ module.exports = {
     return {
       async verifySignature(signerPublickey, message, signature) {
         const dataToVerify = new TextEncoder().encode(message);
-        const binarySignature = Arweave.utils.b64UrlToBuffer(signature);
+        const binarySignature = b64UrlToBuffer(signature);
         const hash = await crypto.subtle.digest("SHA-256", dataToVerify);
 
         const publicJWK = {
@@ -58,3 +58,10 @@ module.exports = {
     };
   },
 };
+
+const b64UrlToBuffer = (b64Url) =>
+  new Uint8Array(
+    atob(b64Url.replace(/-/g, "+").replace(/_/g, "/"))
+      .split("")
+      .map((c) => c.charCodeAt(0))
+  ).buffer;
